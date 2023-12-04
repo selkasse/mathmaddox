@@ -12,14 +12,11 @@ function getRandomNumber(max) {
 
 function calculateEquation() {
   if (operator.innerHTML === "x") {
-    console.log("multiplication");
-    return firstNumber.value * secondNumber.value;
+    return firstNumber.innerHTML * secondNumber.innerHTML;
   } else if (operator.innerHTML === "-") {
-    console.log("subtraction");
-    return firstNumber.value - secondNumber.value;
+    return firstNumber.innerHTML - secondNumber.innerHTML;
   } else {
-    console.log("addition");
-    return firstNumber.value + secondNumber.value;
+    return parseInt(firstNumber.innerHTML) + parseInt(secondNumber.innerHTML);
   }
 }
 
@@ -43,9 +40,9 @@ function formSetup() {
 }
 
 function equationSetup() {
-  firstNumber.value = getRandomNumber(MAX_NUM + 1);
+  firstNumber.innerHTML = getRandomNumber(MAX_NUM + 1);
   operator.innerHTML = OPERATORS[getRandomNumber(OPERATORS.length)];
-  secondNumber.value = getRandomNumber(MAX_NUM + 1);
+  secondNumber.innerHTML = getRandomNumber(MAX_NUM + 1);
   answer.value = "";
   result.innerHTML = "";
 }

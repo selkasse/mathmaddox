@@ -3,23 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
     <title>mathmaddox</title>
   </head>
   <body>
     <form action="" id="equationForm">
-      <input type="number" id="firstNumber" name="firstNumber" readonly />
+      <span id="firstNumber"></span>
       <span id="operator"></span>
-      <input type="number" id="secondNumber" name="secondNumber" readonly />
+      <span id="secondNumber"></span>
 
       <span>=</span>
 
-      <input type="number" id="answer" name="answer" required />
+      <input class="input" type="number" id="answer" name="answer" required />
 
       <button id="answerButton" type="submit">Answer</button>
     </form>
 
     <br />
     <button id="newButton">New</button>
+
     <p id="result"></p>
 
     <script src="math.js"></script>
