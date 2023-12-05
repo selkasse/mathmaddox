@@ -22,6 +22,7 @@ function calculateEquation() {
 
 function formSetup() {
   equationForm.addEventListener("submit", (e) => {
+    console.log("form submitted");
     e.preventDefault();
 
     // handle submit

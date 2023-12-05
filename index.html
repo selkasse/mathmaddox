@@ -3,33 +3,58 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="tailwind.css" />
     <title>mathmaddox</title>
   </head>
   <body>
-    <form action="" id="equationForm">
-      <span id="firstNumber"></span>
-      <span id="operator"></span>
-      <span id="secondNumber"></span>
+    <!-- <div class="v-screen flex items-center justify-center"> -->
+    <!-- <div class="flex flex-column"> -->
+    <div class="h-screen flex flex-col items-center justify-center space-x-4">
+      <div class="flex space-x-4">
+        <form action="" id="equationForm">
+          <span id="firstNumber"></span>
+          <span id="operator"></span>
+          <span id="secondNumber"></span>
 
-      <span>=</span>
+          <span>=</span>
 
-      <input
-        class="input"
-        type="number"
-        pattern="[0-9]*"
-        id="answer"
-        name="answer"
-        required
-      />
+          <input
+            class="input shadow appearance-none border rounded w-full py-1.5 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            type="number"
+            pattern="[0-9]*"
+            id="answer"
+            name="answer"
+            required
+          />
 
-      <button id="answerButton" type="submit">Answer</button>
-    </form>
+          <button
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded"
+            id="answerButton"
+            type="submit"
+          >
+            Answer
+          </button>
+        </form>
+        <button
+          class="bg-blue-300 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded"
+          id="newButton"
+        >
+          New
+        </button>
+      </div>
+      <div class="justify-self-end py-4">
+        <p id="result"></p>
+      </div>
+    </div>
+    <!-- </div> -->
+    <!-- <di</div>v
+      class="h-screen flex items-center justify-center place-content-between"
+    > -->
+    <!-- </div> -->
+    <!-- <br /> -->
 
-    <br />
-    <button id="newButton">New</button>
-
-    <p id="result"></p>
+    <!-- <br /> -->
+    <!-- </div> -->
 
     <script src="math.js"></script>
   </body>
