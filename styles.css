@@ -6,6 +6,11 @@
   width: 8ch;
 }
 
-.hidden {
-  display: none;
+.hide {
+  visibility: hidden;
 }
+
+
+/* .remove {
+  display: none;
+} */
