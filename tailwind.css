@@ -540,10 +540,6 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.ml-0 {
-  margin-left: 0px;
-}
-
 .ml-1 {
   margin-left: 0.25rem;
 }
@@ -663,10 +659,6 @@ video {
   visibility: hidden;
 }
 
-/* .remove {
-  display: none;
-} */
-
 .hover\:bg-blue-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
@@ -676,3 +668,4 @@ video {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
+

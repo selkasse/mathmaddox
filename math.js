@@ -26,11 +26,9 @@ function calculateEquation() {
 
 function formSetup() {
   equationForm.addEventListener("submit", (e) => {
-    console.log("form submitted");
     e.preventDefault();
 
     // handle submit
-    console.log("calculationEquation is: " + calculateEquation());
     if (answer.value) {
       result.classList.remove("hide");
       if (calculateEquation() == answer.value) {
@@ -39,7 +37,6 @@ function formSetup() {
         result.innerText = "I win you stupid human!";
       }
 
-      // answerButton.classList.add("remove");
       answerButton.disabled = true;
       answerButton.classList.remove("bg-blue-500");
       answerButton.classList.remove("hover:bg-blue-700");
@@ -49,18 +46,30 @@ function formSetup() {
       newButton.classList.add("bg-blue-500");
       newButton.classList.add("hover:bg-blue-700");
       newButton.classList.remove("bg-gray-500");
-      // newButton.classList.remove("hide");
     }
   });
+}
+
+function checkForNegatives() {
+  if (
+    operator.innerText == "-" &&
+    parseInt(firstNumber.innerText) < parseInt(secondNumber.innerText)
+  ) {
+    //* swap numbers to disallow negative answers
+    const placeholder = firstNumber.innerText;
+    firstNumber.innerText = secondNumber.innerText;
+    secondNumber.innerText = placeholder;
+  }
 }
 
 function equationSetup() {
   firstNumber.innerText = getRandomNumber(MAX_NUM + 1);
   operator.innerText = OPERATORS[getRandomNumber(OPERATORS.length)];
   secondNumber.innerText = getRandomNumber(MAX_NUM + 1);
+  checkForNegatives();
+
   answer.value = "";
   result.classList.add("hide");
-  // answerButton.classList.remove("remove");
   answerButton.disabled = false;
   answerButton.classList.add("bg-blue-500");
   answerButton.classList.add("hover:bg-blue-700");
