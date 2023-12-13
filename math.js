@@ -1,7 +1,9 @@
 const MAX_NUM = 10;
 const OPERATORS = ["+", "-", "x"];
 
-let equationForm = document.getElementById("equationForm");
+const equationForm = document.getElementById("equationForm");
+const newButton = document.getElementById("newButton");
+const answerButton = document.getElementById("answerButton");
 let firstNumber = document.getElementById("firstNumber");
 let operator = document.getElementById("operator");
 let secondNumber = document.getElementById("secondNumber");
@@ -32,10 +34,13 @@ function formSetup() {
     console.log("calculationEquation is: " + calculateEquation());
     if (answer.value) {
       if (calculateEquation() == answer.value) {
-        result.innerHTML = "you have distroyed me at my own game!   )=";
+        result.innerHTML = "you have destroyed me at my own game!   )=";
       } else {
         result.innerHTML = "I win you stupid human!";
       }
+
+      answerButton.classList.add("hidden");
+      newButton.classList.remove("hidden");
     }
   });
 }
@@ -46,10 +51,12 @@ function equationSetup() {
   secondNumber.innerHTML = getRandomNumber(MAX_NUM + 1);
   answer.value = "";
   result.innerHTML = "";
+  answerButton.classList.remove("hidden");
+  newButton.classList.add("hidden");
 }
 
 equationSetup();
 formSetup();
 
-const newButton = document.getElementById("newButton");
 newButton.addEventListener("click", equationSetup);
+newButton.classList.add("hidden");

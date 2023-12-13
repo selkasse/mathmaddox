@@ -5,3 +5,7 @@
 .input {
   width: 8ch;
 }
+
+.hidden {
+  display: none;
+}
