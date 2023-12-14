@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .input {
-  width: 8ch;
+  width: 5ch;
 }
 
 .hide {

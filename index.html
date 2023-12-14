@@ -7,7 +7,9 @@
     <title>mathmaddox</title>
   </head>
   <body>
-    <div class="h-screen flex flex-col items-center justify-center space-x-4">
+    <div
+      class="h-screen flex flex-col items-center justify-center space-x-4 text-base md:text-5xl"
+    >
       <div class="flex">
         <form action="" id="equationForm">
           <span id="firstNumber"></span>
@@ -17,7 +19,7 @@
           <span>=</span>
 
           <input
-            class="input shadow appearance-none border rounded w-full py-1.5 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            class="input shadow appearance-none border rounded w-full py-1.5 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="number"
             pattern="[0-9]*"
             id="answer"
@@ -26,7 +28,7 @@
           />
 
           <button
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded py-1.5 px-4 leading-tight"
             id="answerButton"
             type="submit"
           >
@@ -35,7 +37,7 @@
         </form>
 
         <button
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 ml-1 rounded"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded py-1.5 px-4 ml-3 leading-tight"
           id="newButton"
         >
           New
