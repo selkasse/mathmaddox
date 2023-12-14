@@ -1,17 +1,34 @@
 const MAX_NUM = 10;
 const OPERATORS = ["+", "-", "x"];
+const ENABLED_BUTTON_COLOR = "bg-blue-500";
+const ENABLED_BUTTON_HOVER_COLOR = "hover:bg-blue-700";
+const DISABLED_BUTTON_COLOR = "bg-gray-500";
 
 const equationForm = document.getElementById("equationForm");
 const newButton = document.getElementById("newButton");
-let answerButton = document.getElementById("answerButton");
-let firstNumber = document.getElementById("firstNumber");
-let operator = document.getElementById("operator");
-let secondNumber = document.getElementById("secondNumber");
-let answer = document.getElementById("answer");
-let result = document.getElementById("result");
+const answerButton = document.getElementById("answerButton");
+const firstNumber = document.getElementById("firstNumber");
+const operator = document.getElementById("operator");
+const secondNumber = document.getElementById("secondNumber");
+const answer = document.getElementById("answer");
+const result = document.getElementById("result");
 
 function getRandomNumber(max) {
   return Math.floor(Math.random() * max);
+}
+
+function enable(button) {
+  button.disabled = false;
+  button.classList.add(ENABLED_BUTTON_COLOR);
+  button.classList.add(ENABLED_BUTTON_HOVER_COLOR);
+  button.classList.remove(DISABLED_BUTTON_COLOR);
+}
+
+function disable(button) {
+  button.disabled = true;
+  button.classList.remove(ENABLED_BUTTON_COLOR);
+  button.classList.remove(ENABLED_BUTTON_HOVER_COLOR);
+  button.classList.add(DISABLED_BUTTON_COLOR);
 }
 
 function calculateEquation() {
@@ -28,7 +45,7 @@ function formSetup() {
   equationForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // handle submit
+    //* handle submit
     if (answer.value) {
       result.classList.remove("hide");
       if (calculateEquation() == answer.value) {
@@ -37,15 +54,8 @@ function formSetup() {
         result.innerText = "I win you stupid human!";
       }
 
-      answerButton.disabled = true;
-      answerButton.classList.remove("bg-blue-500");
-      answerButton.classList.remove("hover:bg-blue-700");
-      answerButton.classList.add("bg-gray-500");
-
-      newButton.disabled = false;
-      newButton.classList.add("bg-blue-500");
-      newButton.classList.add("hover:bg-blue-700");
-      newButton.classList.remove("bg-gray-500");
+      disable(answerButton);
+      enable(newButton);
     }
   });
 }
@@ -69,22 +79,14 @@ function equationSetup() {
   checkForNegatives();
 
   answer.value = "";
+
   result.classList.add("hide");
-  answerButton.disabled = false;
-  answerButton.classList.add("bg-blue-500");
-  answerButton.classList.add("hover:bg-blue-700");
-  answerButton.classList.remove("bg-gray-500");
 
-  newButton.disabled = true;
-  newButton.classList.remove("bg-blue-500");
-  newButton.classList.remove("hover:bg-blue-700");
-  newButton.classList.add("bg-gray-500");
-
-  // newButton.classList.add("hide");
+  enable(answerButton);
+  disable(newButton);
 }
 
 equationSetup();
 formSetup();
 
 newButton.addEventListener("click", equationSetup);
-// newButton.classList.add("hide");
