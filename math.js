@@ -86,14 +86,7 @@ function checkForNegatives() {
 }
 
 function equationSetup() {
-  console.log(
-    `sessionStorage.getItem("firstNumber"): ${sessionStorage.getItem(
-      "firstNumber"
-    )}`
-  );
   const hasCache = sessionStorage.getItem(`firstNumber`) != null;
-
-  console.log(`hasCache: ${hasCache}`);
 
   if (!hasCache) {
     console.log("no cache");
