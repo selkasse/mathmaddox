@@ -17,6 +17,18 @@ function getRandomNumber(max) {
   return Math.floor(Math.random() * max);
 }
 
+function cache() {
+  sessionStorage.setItem(`firstNumber`, firstNumber.innerText);
+  sessionStorage.setItem(`operator`, operator.innerText);
+  sessionStorage.setItem(`secondNumber`, secondNumber.innerText);
+}
+
+function removeCache() {
+  sessionStorage.removeItem(`firstNumber`);
+  sessionStorage.removeItem(`operator`);
+  sessionStorage.removeItem(`secondNumber`);
+}
+
 function enable(button) {
   button.disabled = false;
   button.classList.add(ENABLED_BUTTON_COLOR);
@@ -56,6 +68,7 @@ function formSetup() {
 
       disable(answerButton);
       enable(newButton);
+      removeCache();
     }
   });
 }
@@ -73,10 +86,28 @@ function checkForNegatives() {
 }
 
 function equationSetup() {
-  firstNumber.innerText = getRandomNumber(MAX_NUM + 1);
-  operator.innerText = OPERATORS[getRandomNumber(OPERATORS.length)];
-  secondNumber.innerText = getRandomNumber(MAX_NUM + 1);
-  checkForNegatives();
+  console.log(
+    `sessionStorage.getItem("firstNumber"): ${sessionStorage.getItem(
+      "firstNumber"
+    )}`
+  );
+  const hasCache = sessionStorage.getItem(`firstNumber`) != null;
+
+  console.log(`hasCache: ${hasCache}`);
+
+  if (!hasCache) {
+    console.log("no cache");
+    firstNumber.innerText = getRandomNumber(MAX_NUM + 1);
+    operator.innerText = OPERATORS[getRandomNumber(OPERATORS.length)];
+    secondNumber.innerText = getRandomNumber(MAX_NUM + 1);
+    checkForNegatives();
+    cache();
+  } else {
+    console.log("cache");
+    firstNumber.innerText = sessionStorage.getItem(`firstNumber`);
+    operator.innerText = sessionStorage.getItem(`operator`);
+    secondNumber.innerText = sessionStorage.getItem(`secondNumber`);
+  }
 
   answer.value = "";
 
